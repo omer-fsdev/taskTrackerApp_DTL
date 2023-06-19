@@ -1,0 +1,11 @@
+{% extends 'todo/base.html' %}
+
+
+{% block container %}
+    <h3>Todo Delete Page</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="btn btn-danger mt-3" type="submit" value="DELETE THE TASK">
+    </form>
+{% endblock container %}
+    

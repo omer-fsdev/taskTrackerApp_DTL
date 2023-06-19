@@ -1,0 +1,12 @@
+{% extends 'todo/base.html' %} 
+
+{% block container %}
+<h3>Task Update Page</h3>
+<form action="" method="POST">
+  {{ form.as_p }} {% csrf_token %}
+  <input class="btn btn-warning" type="submit" value="UPDATE TASK" />
+</form>
+<div>
+    <a href="{% url 'todo_list' %}" class="btn btn-danger mt-1">CANCEL</a>
+</div>
+{% endblock container %}

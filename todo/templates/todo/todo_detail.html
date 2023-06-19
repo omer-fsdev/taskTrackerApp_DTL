@@ -1,0 +1,51 @@
+{% extends 'todo/base.html' %}
+{% block container %}
+
+<hr>
+<h2>Todo Detail Page</h2>
+<p><a href="/" class="btn btn-primary">HOME</a></p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Priority</th>
+            <th>Title</th>
+            <th>Created_date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {% if todo.priority == 1 %}
+                <b class="text-danger">{{ todo.get_priority_display }}</b>
+                {% elif todo.priority == 2 %}
+                <b class="text-warning">{{ todo.get_priority_display }}</b>
+                {% else %}
+                <b class="text-info">{{ todo.get_priority_display }}</b>
+                {% endif %}
+            </td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.created_date }}</td>
+            <td>
+                {% if todo.status == "c" %}
+               		 <b class="text-success">{{todo.get_status_display}}</b> 
+                	{% elif  todo.status == "w" %}
+                	<b class="text-warning">{{todo.get_status_display}}</b>  
+                	{% else %}
+                	<b class="text-info">{{todo.get_status_display}}</b>   
+                	{% endif %} 
+            </td>
+            <td class="d-flex justify-content-around">
+                <a class="link-underline link-underline-opacity-0" href="/update/{{ todo.id }}">✏️</a>
+                <a class="link-underline link-underline-opacity-0" href="/delete/{{ todo.id }}" onclick="return confirm('⚠️ The selected task will be deleted. Are you sure?')" >❌</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<b>Description:</b> <br> {{ todo.description }}
+<hr>
+<b>Add:</b> {{ todo.created_date }}  <br>
+<b>Update:</b> {{ todo.updated_date }}
+
+{% endblock container %}
