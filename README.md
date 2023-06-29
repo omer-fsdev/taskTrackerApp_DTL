@@ -63,4 +63,4 @@ python manage.py runserver
 
 ## License
 
-The Task Tracker App is released under the MIT License. Feel free to modify and use the code according to your needs.
+The Task Tracker App is released under the MIT License.
